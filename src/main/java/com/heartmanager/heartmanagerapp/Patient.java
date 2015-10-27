@@ -15,23 +15,28 @@ import java.util.Objects;
  */
 public class Patient {
     
-    private Long id;
+    private String taj;
     private String name;
-    private Integer age;
+    private Date dateOfBirth;
     private Sex sex;
     private Map<Integer, String> measurements;
 
-    public Patient(Long id, String name) {
-        this.id = id;
+    public Patient(String taj) {
+        this.taj = taj;
+    }
+
+    public Patient(String taj, String name, Date dateOfBirth) {
+        this.taj = taj;
         this.name = name;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public Long getId() {
-        return id;
+    public String getTaj() {
+        return taj;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTaj(String taj) {
+        this.taj = taj;
     }
 
     public String getName() {
@@ -42,12 +47,12 @@ public class Patient {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Sex getSex() {
@@ -68,12 +73,12 @@ public class Patient {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.age);
-        hash = 53 * hash + Objects.hashCode(this.sex);
-        hash = 53 * hash + Objects.hashCode(this.measurements);
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.taj);
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.dateOfBirth);
+        hash = 79 * hash + Objects.hashCode(this.sex);
+        hash = 79 * hash + Objects.hashCode(this.measurements);
         return hash;
     }
 
@@ -86,13 +91,13 @@ public class Patient {
             return false;
         }
         final Patient other = (Patient) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.taj, other.taj)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.age, other.age)) {
+        if (!Objects.equals(this.dateOfBirth, other.dateOfBirth)) {
             return false;
         }
         if (this.sex != other.sex) {
@@ -106,7 +111,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "id=" + id + ", name=" + name + ", age=" + age + ", sex=" + sex + ", measurements=" + measurements + '}';
+        return "Patient{" + "taj=" + taj + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", sex=" + sex + ", measurements=" + measurements + '}';
     }
     
 }
